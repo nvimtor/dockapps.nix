@@ -41,7 +41,7 @@ Each module's =package= defaults (via =mkDefault=) to the matching derivation fr
 }
 #+end_src
 
-** Authoring your own module
+*** Authoring your own module
 =.lib.mkDockappModule= is the same builder these modules use; give it a =name= and an option =spec= and it returns a home-manager module wiring up a wrapper + config file.
 
 ** Example
