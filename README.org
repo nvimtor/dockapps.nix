@@ -10,10 +10,9 @@ You'll need a Nix package scope with some dependencies in (=mkDockapp=, =libdock
 =default.nix= is a function that gives you that package scope, as long as you call it with these dependencies:
 
 1. =nix-common=: https://github.com/nvimtor/nix-common
-2. =nix-package-module=: https://github.com/nvimtor/nix-package-module
-3. =dockappsSource=: https://gitlab.com/xander1988/dockapps
-4. =libdockapp4Source=: https://gitlab.com/xander1988/libdockapp
-5. =pkgs=: your nixpkgs
+2. =dockappsSource=: https://gitlab.com/xander1988/dockapps
+3. =libdockapp4Source=: https://gitlab.com/xander1988/libdockapp
+4. =pkgs=: your nixpkgs
 
 ** Example
 See example/; it uses =npins= to pin the dependencies. But you can use whatever (flakes, niv, etc.).
