@@ -7,7 +7,6 @@ let
   dockapps = import ../. {
     inherit pkgs;
     nix-common = import sources.nix-common;
-    nix-package-module = import sources.nix-package-module;
     dockappsSource = sources.dockapps;
     libdockapp4Source = sources.libdockapp;
   };

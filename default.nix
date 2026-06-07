@@ -2,30 +2,21 @@
   dockappsSource,
   libdockapp4Source,
   nix-common,
-  nix-package-module,
   pkgs,
   ...
 }: let
-  inherit (pkgs) lib;
+  inherit (nix-common.packageScope) mkPackageScope pkg input importPackages;
 
-  npm = nix-package-module {
-    name = "npm";
-    inherit nix-common;
+  packages = mkPackageScope {
+    inherit pkgs;
+
+    branch = {
+      dockappsSource = input dockappsSource;
+      # wmgrabimageSource = input wmgrabimageSource;
+      libdockapp4Source = input libdockapp4Source;
+      mkDockapp = pkg (import ./make-dockapp.nix);
+    } // importPackages ./dockapps;
   };
-
-  evaled = lib.evalModules {
-    modules = [
-      { _module.args = { inherit pkgs; }; }
-      npm
-      ./module.nix
-    ];
-
-    specialArgs = {
-      inherit dockappsSource libdockapp4Source;
-    };
-  };
-
-  packages = evaled.config.npm.packageOutputs.dockapps;
 in {
   inherit packages;
 }
