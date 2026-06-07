@@ -35,9 +35,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "b7d48a14605d231b67076bdc9b8689c9765bd8f9",
-      "url": "https://github.com/nvimtor/nix-common/archive/b7d48a14605d231b67076bdc9b8689c9765bd8f9.tar.gz",
-      "hash": "sha256-f5h6U3YgNv7e/nUPQynXTdQaN30c+KwpwyFYHqqAFkw="
+      "revision": "3db1b99d7ec3c2acefaa84ba2604b70be1521907",
+      "url": "https://github.com/nvimtor/nix-common/archive/3db1b99d7ec3c2acefaa84ba2604b70be1521907.tar.gz",
+      "hash": "sha256-N/mW+yrlBswADm7uHbTLeCyH6KfYkYzkeAVirXP9yx8="
     },
     "nix-package-module": {
       "type": "Git",

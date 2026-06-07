@@ -3,16 +3,46 @@
 This repository contains the work I've done to package [[https://gitlab.com/xander1988/dockapps][xander1988's scalable dockapps]] as Nix derivations.
 
 * How to use this
-All packages are individually "=callPackageable=" within the dockapps/ folder.
+=default.nix= is a function.
 
-You'll need a Nix package scope with some dependencies in (=mkDockapp=, =libdockapp4=, etc.). You can do it yourself or;
-
-=default.nix= is a function that gives you that package scope, as long as you call it with these dependencies:
+It needs to be called with these dependencies:
 
 1. =nix-common=: https://github.com/nvimtor/nix-common
 2. =dockappsSource=: https://gitlab.com/xander1988/dockapps
 3. =libdockapp4Source=: https://gitlab.com/xander1988/libdockapp
-4. =pkgs=: your nixpkgs
+4. =pkgs=: your =nixpkgs=
+
+It returns an attrset with three outputs:
+
+- =packages= :: the package scope of built dockapp derivations.
+- =homeManagerModules= :: home-manager modules for the dockapps that have one.
+- =lib= :: the =mkDockappModule= builder, for authoring your own.
+
+** Packages
+All packages are individually "=callPackageable=" within the dockapps/ folder.
+
+You’ll need a Nix package scope with some dependencies in (=mkDockapp=, =libdockapp4=, etc.). You can do it yourself or just use the package scope already provided (the =packages= attribute).
+
+** Home-manager modules
+=.homeManagerModules= holds one module per dockapp that has configurable options, plus a =default= aggregate that imports all of them. Options live under =programs.dockapps.<name>=, with cross-app defaults under =programs.dockapps.settings=.
+
+Each module's =package= defaults (via =mkDefault=) to the matching derivation from =.packages=, so enabling a dockapp needs nothing more:
+
+#+begin_src nix
+{ # inside a home-manager configuration
+  imports = [ dockapps.homeManagerModules.default ];
+
+  programs.dockapps.settings.scale = 2;     # applied to every enabled dockapp
+  programs.dockapps.wmweather = {
+    enable = true;                          # package auto-filled
+    station = "EGCC";
+    metric = true;
+  };
+}
+#+end_src
+
+** Authoring your own module
+=.lib.mkDockappModule= is the same builder these modules use; give it a =name= and an option =spec= and it returns a home-manager module wiring up a wrapper + config file.
 
 ** Example
 See example/; it uses =npins= to pin the dependencies. But you can use whatever (flakes, niv, etc.).
