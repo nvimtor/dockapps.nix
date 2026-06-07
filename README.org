@@ -1,0 +1,19 @@
+#+title: dockapps.nix
+
+This repository contains the work I've done to package [[https://gitlab.com/xander1988/dockapps][xander1988's scalable dockapps]] as Nix derivations.
+
+* How to use this
+All packages are individually "=callPackageable=" within the dockapps/ folder.
+
+You'll need a Nix package scope with some dependencies in (=mkDockapp=, =libdockapp4=, etc.). You can do it yourself or;
+
+=default.nix= is a function that gives you that package scope, as long as you call it with these dependencies:
+
+1. =nix-common=: https://github.com/nvimtor/nix-common
+2. =nix-package-module=: https://github.com/nvimtor/nix-package-module
+3. =dockappsSource=: https://gitlab.com/xander1988/dockapps
+4. =libdockapp4Source=: https://gitlab.com/xander1988/libdockapp
+5. =pkgs=: your nixpkgs
+
+** Example
+See example/; it uses =npins= to pin the dependencies. But you can use whatever (flakes, niv, etc.).

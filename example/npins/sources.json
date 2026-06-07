@@ -1,0 +1,63 @@
+{
+  "pins": {
+    "dockapps": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "xander1988/dockapps",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "f736a8b00f14201734e434a5a72b379fe3e4c656",
+      "url": "https://gitlab.com/api/v4/projects/xander1988%2Fdockapps/repository/archive.tar.gz?sha=f736a8b00f14201734e434a5a72b379fe3e4c656",
+      "hash": "sha256-DoA7LVol0C0Qk/tItR8tlQ7LZR2VA2sQ1sDkW9bmTII="
+    },
+    "libdockapp": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "xander1988/libdockapp",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "529ecfa6eaf6bfa8b571b33802d37c90e9a72c45",
+      "url": "https://gitlab.com/api/v4/projects/xander1988%2Flibdockapp/repository/archive.tar.gz?sha=529ecfa6eaf6bfa8b571b33802d37c90e9a72c45",
+      "hash": "sha256-+xQbv6B9rN055vEgRZiNeJfWB5D/3VhnSl4a5FH3rAs="
+    },
+    "nix-common": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nvimtor",
+        "repo": "nix-common"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "b7d48a14605d231b67076bdc9b8689c9765bd8f9",
+      "url": "https://github.com/nvimtor/nix-common/archive/b7d48a14605d231b67076bdc9b8689c9765bd8f9.tar.gz",
+      "hash": "sha256-f5h6U3YgNv7e/nUPQynXTdQaN30c+KwpwyFYHqqAFkw="
+    },
+    "nix-package-module": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nvimtor",
+        "repo": "nix-package-module"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "e6af712b0bed82ae83d086184a8df6ec1a30a39f",
+      "url": "https://github.com/nvimtor/nix-package-module/archive/e6af712b0bed82ae83d086184a8df6ec1a30a39f.tar.gz",
+      "hash": "sha256-g9OG6J2P6VUTskjEmfYaIt9uiZzrMV67jQyarjMxIXM="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1011620.cbb5cf358f50/nixexprs.tar.xz",
+      "hash": "sha256-d86UGSjwACWRttincQzeiAEZYVPtP3kODhr9hYZD4e8="
+    }
+  },
+  "version": 7
+}
