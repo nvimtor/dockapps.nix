@@ -1,8 +1,7 @@
-{ dockappsSource, libdockapp4Source, ... }:
-{ config, ... }: let
+{ config, dockappsSource, libdockapp4Source, ... }: let
   inherit (config) npm;
 in {
-  npm.packages.dockapps-nix.dockapps = {
+  npm.packages.dockapps = {
     dockappsSource = npm.lib.input dockappsSource;
     # wmgrabimageSource = npm.lib.input wmgrabimage;
     libdockapp4Source = npm.lib.input libdockapp4Source;
